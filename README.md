@@ -56,5 +56,11 @@ Step 2. Add the dependency
        
          
 ```
+# Output for the demo app using the sdk
+
+printing a full layout
+
+<img src="https://user-images.githubusercontent.com/37459585/73938305-a7557280-48ef-11ea-8a1f-2f9deb303b12.PNG"  width="250" height="250" /> <img src="https://user-images.githubusercontent.com/37459585/73938333-b89e7f00-48ef-11ea-85f4-3ea1a376357b.jpg"  width="250" height="250" />
+
 
 # Thank You 
