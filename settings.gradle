@@ -1,0 +1,2 @@
+include ':app', ':sunmiprinterutill'
+rootProject.name='Sunmi Printer Demo'
