@@ -45,13 +45,14 @@ Step 2. Add the dependency
       
     // Print a layout view 
     // Note : the layout must be in the activity or fragment layout and you can hide it
-    // this method will convert the view to an image then will auto scale it to fit the size of the printer paper
+    // "sendViewToPrinter" will convert the view to an image then will auto scale it to fit the size of the printer paper
+    
          View view = findViewById(R.id.print_me_layout);
          printMe.sendViewToPrinter(view);
          
     // Also you can access the original sunmi sdk to use it as you wish by aidlUtil
     
-      printMe.aidlUtil. -> Anything you want .
+        printMe.aidlUtil. -> Anything you want .
        
          
 ```
