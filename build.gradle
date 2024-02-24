@@ -2,10 +2,11 @@
 
 buildscript {
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
-        
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:8.2.2'
         
@@ -14,11 +15,15 @@ buildscript {
     }
 }
 
+plugins {
+    id 'maven-publish'
+}
+
 allprojects {
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
-        
     }
 }
 
