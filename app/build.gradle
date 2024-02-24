@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.ahmedelsayed.sunmiprinterapp"
         minSdkVersion 15
@@ -17,6 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.ahmedelsayed.sunmiprinterapp'
 }
 
 dependencies {
