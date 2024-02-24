@@ -1,12 +1,17 @@
 package com.ahmedelsayed.sunmiprinterutill.model;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.Toast;
 
+
+import androidx.core.app.ActivityCompat;
 
 import com.ahmedelsayed.sunmiprinterutill.R;
 
@@ -30,7 +35,7 @@ public class BluetoothUtil {
 
     private static BluetoothDevice getDevice(BluetoothAdapter bluetoothAdapter) {
         BluetoothDevice innerprinter_device = null;
-        Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
+        @SuppressLint("MissingPermission") Set<BluetoothDevice> devices = bluetoothAdapter.getBondedDevices();
         for (BluetoothDevice device : devices) {
             if (device.getAddress().equals(Innerprinter_Address)) {
                 innerprinter_device = device;
@@ -40,6 +45,7 @@ public class BluetoothUtil {
         return innerprinter_device;
     }
 
+    @SuppressLint("MissingPermission")
     private static BluetoothSocket getSocket(BluetoothDevice device) throws IOException {
         BluetoothSocket socket = null;
         socket = device.createRfcommSocketToServiceRecord(PRINTER_UUID);
