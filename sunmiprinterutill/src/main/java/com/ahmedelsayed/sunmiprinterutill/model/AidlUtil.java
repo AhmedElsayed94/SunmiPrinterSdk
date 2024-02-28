@@ -21,15 +21,15 @@ import woyou.aidlservice.jiuiv5.IWoyouService;
 
 
 public class AidlUtil {
-    private static final String SERVICE＿PACKAGE = "woyou.aidlservice.jiuiv5";
-    private static final String SERVICE＿ACTION = "woyou.aidlservice.jiuiv5.IWoyouService";
-    private static AidlUtil mAidlUtil = new AidlUtil();
+    private static final String SERVICE_PACKAGE = "woyou.aidlservice.jiuiv5";
+    private static final String SERVICE_ACTION = "woyou.aidlservice.jiuiv5.IWoyouService";
+    private static final AidlUtil mAidlUtil = new AidlUtil();
     private IWoyouService woyouService;
     private Context context;
 
 
 
-    private ServiceConnection connService = new ServiceConnection() {
+    private final ServiceConnection connService = new ServiceConnection() {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
@@ -42,7 +42,7 @@ public class AidlUtil {
         }
     };
 
-    private int[] darkness = new int[]{0x0600, 0x0500, 0x0400, 0x0300, 0x0200, 0x0100, 0,
+    private final int[] darkness = new int[]{0x0600, 0x0500, 0x0400, 0x0300, 0x0200, 0x0100, 0,
             0xffff, 0xfeff, 0xfdff, 0xfcff, 0xfbff, 0xfaff};
 
     private AidlUtil() {
@@ -56,8 +56,8 @@ public class AidlUtil {
     public void connectPrinterService(Context context) {
         this.context = context.getApplicationContext();
         Intent intent = new Intent();
-        intent.setPackage(SERVICE＿PACKAGE);
-        intent.setAction(SERVICE＿ACTION);
+        intent.setPackage(SERVICE_PACKAGE);
+        intent.setAction(SERVICE_ACTION);
         context.getApplicationContext().startService(intent);
         context.getApplicationContext().bindService(intent, connService, Context.BIND_AUTO_CREATE);
     }
@@ -81,17 +81,17 @@ public class AidlUtil {
 
 
             @Override
-            public void onRunResult(boolean isSuccess) throws RemoteException {
+            public void onRunResult(boolean isSuccess) {
 
             }
 
             @Override
-            public void onReturnString(String result) throws RemoteException {
+            public void onReturnString(String result) {
                 printerCallback.onReturnString(result);
             }
 
             @Override
-            public void onRaiseException(int code, String msg) throws RemoteException {
+            public void onRaiseException(int code, String msg) {
 
             }
         };
@@ -130,10 +130,10 @@ public class AidlUtil {
             //info.add(woyouService.getServiceVersion());
             PackageManager packageManager = context.getPackageManager();
             try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(SERVICE＿PACKAGE, 0);
+                PackageInfo packageInfo = packageManager.getPackageInfo(SERVICE_PACKAGE, 0);
                 if (packageInfo != null) {
                     info.add(packageInfo.versionName);
-                    info.add(packageInfo.versionCode + "");
+                    info.add(String.valueOf(packageInfo.versionCode));
                 } else {
                     info.add("");
                     info.add("");
